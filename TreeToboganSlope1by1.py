@@ -1,27 +1,24 @@
 lista1 = []
 list_of_list = []
 #print(lista1)\
-f = open('input.txt.txt', 'r')
+f = open('input.txt', 'r')
 temp_list = []
 c=0
 for x in f:
 	temp_list.append(x.strip('\n'))
-steps = 3
+steps = 0
 counter = 0
-treeLine = 1
-
+treeLine = 0
+print(len(temp_list))
 
 while treeLine <= len(temp_list) - 1:
-
 	if temp_list[treeLine][steps % 31] == '#':
-		print("Correct: ", treeLine, steps, len(temp_list[treeLine]))
 		counter+=1
-		steps+=7
-		treeLine+=1
-
+		steps+=1
+		treeLine+=2
 	else:
-		steps+=3
-		treeLine+=1
-	#print(x)
+		steps+=1
+		treeLine+=2
+
 print(counter, steps, steps%31, treeLine)
 
