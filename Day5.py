@@ -61,18 +61,3 @@ for ar in q:
 	#print(f1(ar.strip('\n')))
 	l2.append(int(f1(ar.strip('n'))))
 print(max(l2))
-
-import sys
-
-with open('seats.txt', "r") as f:
-    seats = (
-        f.read()
-        .strip()
-        .replace("B", "1")
-        .replace("F", "0")
-        .replace("R", "1")
-        .replace("L", "0")
-        .split("\n")
-    )
-
-print(max([int(s,2) for s in seats]))

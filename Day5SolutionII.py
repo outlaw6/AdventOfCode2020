@@ -7,17 +7,7 @@
 # Check this out...
 # Very cool and very smart!
 
-import sys
-with open(sys.argv[1], "r") as f:
-    seats = (
-        f.read()
-        .strip()
-        .replace("B", "1")
-        .replace("F", "0")
-        .replace("R", "1")
-        .replace("L", "0")
-        .split("\n")
-    )
+
 '''
 print(f"Part 1: {max([int(s, 2) for s in seats])}") # -----> This is to convert in 0s and 1s
 '''
@@ -42,5 +32,20 @@ s1 = '0101100' + '101'
 # Im joking, just visit https://wiki.python.org/moin/BitwiseOperators
 # It will be clear in the second
 
+
+import sys
+
+with open('seats.txt', "r") as f:
+    seats = (
+        f.read()
+        .strip()
+        .replace("B", "1")
+        .replace("F", "0")
+        .replace("R", "1")
+        .replace("L", "0")
+        .split("\n")
+    )
+
+print(max([int(s,2) for s in seats]))
 
 
