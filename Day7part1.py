@@ -1,4 +1,5 @@
 from collections import defaultdict
+from functools import lru_cache
 with open('bags.txt', 'r') as bags:
 	bags = bags.readlines()
 
@@ -19,3 +20,10 @@ for bag in bags:
 			bagsz[color] = {}	
 
 print(bagsz)
+def can_hold(in_color, out_color):
+    if in_color in str(bagsz[out_color]):
+        return True
+    return any([can_hold(in_color, b)for b in bagsz[out_color]])
+
+part1 = sum([can_hold('shiny gold', bag) for bag in bagsz])
+print(part1)
